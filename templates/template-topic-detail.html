@@ -30,6 +30,7 @@
       max-width: 120rem;
       margin: 0 auto;
       padding: 2rem;
+      box-sizing: border-box;
     }
 
     .topic__header {
@@ -90,6 +91,29 @@
     .topic__back:hover {
       background-color: #9be15d;
     }
+
+    pre, code {
+      white-space: pre-wrap; /* Preserve whitespace and wraps lines */
+      word-wrap: break-word; /* Break words when necessary */
+      max-width: 100%; /* Ensure it doesn't exceed the width of the container */
+      box-sizing: border-box; /* Ensure padding is included in the element's width */
+      padding: 10px; /* Optional: Add some padding for better readability */
+      background-color: #f4f4f4; /* Optional: Add a background color for the code block */
+      border-radius: 5px; /* Optional: Add rounded corners */
+      font-family: 'Courier New', Courier, monospace; /* Optional: Set a monospace font */
+  }
+  
+  @media screen and (max-width: 768px) {
+      pre, code {
+          font-size: 14px; /* Adjust font size for smaller screens */
+      }
+  }
+  
+  @media screen and (max-width: 480px) {
+      pre, code {
+          font-size: 12px; /* Further adjust font size for very small screens */
+      }
+  }
   </style>
 
   <body>
@@ -101,7 +125,6 @@
       <div class="topic__details">
         <h2>Detailed Explanation</h2>
         <p>{%DETAILED_EXPLANATION%}</p>
-
         <h2>Example Code</h2>
         <pre class="topic__code">{%CODE_SNIPPET%}</pre>
       </div>
