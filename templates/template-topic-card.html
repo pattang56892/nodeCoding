@@ -1,0 +1,71 @@
+<figure class="card">
+  <div class="card__title-box">
+    <h2 class="card__title">{%TOPICNAME%}</h2>
+  </div>
+
+  <div class="card__details">
+    <div class="card__detail-box">
+      <h6 class="card__detail">{%SUMMARY%}</h6>
+    </div>
+
+    <div class="card__detail-box">
+      <h6 class="card__detail card__detail--tags">{%TAGS%}</h6>
+    </div>
+  </div>
+
+  <a class="card__link" href="/topic?id={%ID%}">
+    <span>Read More <i class="emoji-right">👉</i></span>
+  </a>
+</figure>
+
+<style>
+  .card {
+    background: white;
+    box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+    margin-bottom: 5rem;
+    padding: 2rem;
+    transition: all 0.5s;
+  }
+
+  .card__title-box {
+    background: linear-gradient(to bottom, #9be15d, #00e3ae);
+    padding: 1rem 2rem;
+  }
+
+  .card__title {
+    font-family: 'Megrim', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  .card__details {
+    margin-top: 1.5rem;
+  }
+
+  .card__detail-box {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .card__detail {
+    font-size: 1.6rem;
+    color: #333;
+  }
+
+  .card__link {
+    display: block;
+    margin-top: 2rem;
+    background-color: #79e17b;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 700;
+    transition: all 0.3s;
+  }
+
+  .card__link:hover {
+    background-color: #9be15d;
+  }
+</style>

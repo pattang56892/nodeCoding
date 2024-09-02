@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
+    />
+
+    <title>{%TOPICNAME%} /// Coding Topic Detail</title>
+  </head>
+
+  <style>
+    /* Add your CSS styling here */
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: #555;
+      background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+    }
+
+    .container {
+      max-width: 120rem;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .topic__header {
+      background: linear-gradient(to bottom, #9be15d, #00e3ae);
+      padding: 2rem;
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .topic__details {
+      background-color: #fff;
+      padding: 2rem;
+      box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .topic__details h2 {
+      font-family: 'Megrim', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .topic__details p {
+      font-size: 1.8rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .topic__code {
+      background-color: #f4f4f4;
+      padding: 1.5rem;
+      font-family: 'Courier New', monospace;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .topic__back {
+      display: block;
+      margin-top: 2rem;
+      background-color: #79e17b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .topic__back:hover {
+      background-color: #9be15d;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="topic__header">
+        <h1>📚 {%TOPICNAME%} 📖</h1>
+      </div>
+
+      <div class="topic__details">
+        <h2>Detailed Explanation</h2>
+        <p>{%DETAILED_EXPLANATION%}</p>
+
+        <h2>Example Code</h2>
+        <pre class="topic__code">{%CODE_SNIPPET%}</pre>
+      </div>
+
+      <a href="/overview" class="topic__back">
+        <span>👈 Back to Overview</span>
+      </a>
+    </div>
+  </body>
+</html>
