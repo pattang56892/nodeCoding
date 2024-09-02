@@ -19,9 +19,18 @@
     body {
       font-family: 'Nunito Sans', sans-serif;
       color: #555;
-      background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+      background-color: #000;     
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+      height: auto; 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;      
+      overflow-y: scroll;      
     }
-
+    
     h1 {
       font-family: 'Megrim', sans-serif;
       font-size: 6rem;
@@ -31,17 +40,19 @@
     }
 
     .container {
-      max-width: calc(100% + 20px); 
+      max-width: calc(100% + 50px); 
+      width: 75%; 
       margin: 0 auto;
       padding: 2rem;
-      padding-left: 20px; 
-      padding-right: 20px; 
+      overflow: hidden;
+      box-sizing: border-box; 
     }
 
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-      gap: 7.5rem;
+      gap: 3rem;
+      overflow: hidden; 
     }
 
     .card {
@@ -50,6 +61,7 @@
       border-radius: 10px;
       box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
       width: 100%;
+      box-sizing: border-box;
     }
 
     .card h2 {
@@ -71,6 +83,10 @@
       font-weight: bold;
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 4rem;
@@ -89,7 +105,9 @@
       }
 
       .cards-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        padding-left: 20px;
+        padding-right: 20px; 
       }
     }
   </style>
