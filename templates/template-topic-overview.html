@@ -16,13 +16,12 @@
   </head>
   
   <style>
-    /* Add your CSS styling here */
     body {
       font-family: 'Nunito Sans', sans-serif;
       color: #555;
       background: linear-gradient(to bottom right, #9be15d, #00e3ae);
     }
-  
+
     h1 {
       font-family: 'Megrim', sans-serif;
       font-size: 6rem;
@@ -30,17 +29,68 @@
       text-align: center;
       margin-top: 2rem;
     }
-  
+
     .container {
-      max-width: 120rem;
+      max-width: calc(100% + 20px); 
       margin: 0 auto;
       padding: 2rem;
+      padding-left: 20px; 
+      padding-right: 20px; 
     }
-  
+
     .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+      gap: 7.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+
+    .card h2 {
+      font-size: 2.5rem;
+      color: #005522; /* Darker shade for better readability */
+    }
+
+    .card p {
+      font-size: 1.8rem;
+      color: #555;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      color: #00c88c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 4rem;
+      }
+
+      .card h2 {
+        font-size: 2rem;
+      }
+
+      .card p {
+        font-size: 1.6rem;
+      }
+
+      .card a {
+        font-size: 1.4rem;
+      }
+
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   

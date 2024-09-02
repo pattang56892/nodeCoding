@@ -4,5 +4,11 @@ module.exports = (temp, topic) => {
   output = output.replace(/{%SUMMARY%}/g, topic.description);
   output = output.replace(/{%ID%}/g, topic.id);
 
+  // Replace codesnippet placeholder
+  output = output.replace(/{%CODESNIPPET%}/g, topic.codesnippet);
+
+  // Optionally, you can remove the {%TAGS%} placeholder if it's still in the template
+  output = output.replace(/{%TAGS%}/g, '');
+
   return output;
 };

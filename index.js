@@ -1,4 +1,5 @@
-const fs = require('fs').promises;
+const fs = require('fs');
+const fsPromises = fs.promises;
 const http = require('http');
 const url = require('url');
 const slugify = require('slugify');
@@ -9,10 +10,10 @@ let tempOverview, tempCard, tempTopic, dataObj;
 
 async function loadFiles() {
   try {
-    tempOverview = await fs.readFile(`${__dirname}/templates/template-topic-overview.html`, 'utf-8');
-    tempCard = await fs.readFile(`${__dirname}/templates/template-topic-card.html`, 'utf-8');
-    tempTopic = await fs.readFile(`${__dirname}/templates/template-topic-detail.html`, 'utf-8');
-    const data = await fs.readFile(`${__dirname}/dev-data/data.json`, 'utf-8');
+    tempOverview = await fsPromises.readFile(`${__dirname}/templates/template-topic-overview.html`, 'utf-8');
+    tempCard = await fsPromises.readFile(`${__dirname}/templates/template-topic-card.html`, 'utf-8');
+    tempTopic = await fsPromises.readFile(`${__dirname}/templates/template-topic-detail.html`, 'utf-8');
+    const data = await fsPromises.readFile(`${__dirname}/dev-data/data.json`, 'utf-8');
     dataObj = JSON.parse(data);
   } catch (err) {
     console.error("Error loading files:", err);
@@ -23,7 +24,7 @@ async function loadFiles() {
 async function init() {
   await loadFiles();
 
-  const slugs = dataObj.map(el => slugify(el.topicName, { lower: true }));
+  const slugs = dataObj.map(el => slugify(el.topicName || '', { lower: true }));
   console.log(slugs);
 
   const server = http.createServer((req, res) => {
@@ -52,14 +53,14 @@ async function init() {
     }
   });
 
-  server.listen(8080, '127.0.0.1', () => {
-    console.log('Listening to requests on port 8080');
+  server.listen(3001, '127.0.0.1', () => {
+    console.log('Listening to requests on port 3001');
   });
 
   // Watch for changes in data.json and reload data
   fs.watchFile(`${__dirname}/dev-data/data.json`, async (curr, prev) => {
     try {
-      const data = await fs.readFile(`${__dirname}/dev-data/data.json`, 'utf-8');
+      const data = await fsPromises.readFile(`${__dirname}/dev-data/data.json`, 'utf-8');
       dataObj = JSON.parse(data);
       console.log('data.json file updated, reloaded data.');
     } catch (err) {

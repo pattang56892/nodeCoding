@@ -1,0 +1,33 @@
+{
+  "name": "nodecodingnotes",
+  "version": "1.0.0",
+  "description": "backend database for coding notes using nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pattang56892/nodeCoding.git"
+  },
+  "keywords": [
+    "nodejs",
+    "coding",
+    "notes",
+    "database",
+    "backend",
+    "express",
+    "mongoose"
+  ],
+  "author": "Patrick Tang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pattang56892/nodeCoding/issues"
+  },
+  "homepage": "https://github.com/pattang56892/nodeCoding#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "slugify": "^1.6.6"
+  }
+}
