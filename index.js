@@ -53,8 +53,8 @@ async function init() {
     }
   });
 
-  server.listen(3001, '127.0.0.1', () => {
-    console.log('Listening to requests on port 3001');
+  server.listen(3002, '127.0.0.1', () => {
+    console.log('Listening to requests on port 3002');
   });
 
   // Watch for changes in data.json and reload data
