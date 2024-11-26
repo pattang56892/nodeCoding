@@ -24,8 +24,9 @@ async function loadFiles() {
 async function init() {
   await loadFiles();
 
-  const slugs = dataObj.map(el => slugify(el.topicName || '', { lower: true }));
-  console.log(slugs);
+  // Handle possible missing 'topicName' properties
+  const slugs = dataObj.map(el => slugify(el.topicName || el.name || 'topic', { lower: true }));
+  console.log('Slugs:', slugs);
 
   const server = http.createServer((req, res) => {
     const { query, pathname } = url.parse(req.url, true);
@@ -53,9 +54,33 @@ async function init() {
     }
   });
 
-  server.listen(3002, '127.0.0.1', () => {
-    console.log('Listening to requests on port 3002');
-  });
+  const userPort = process.env.PORT ? parseInt(process.env.PORT, 10) : null;
+  const defaultPort = 3999;
+
+  function startServer(portToTry, triedDefaultPort) {
+    server.listen(portToTry, '127.0.0.1', () => {
+      console.log(`Listening to requests on port ${portToTry}`);
+    }).on('error', (err) => {
+      if (err.code === 'EACCES' || err.code === 'EADDRINUSE') {
+        if (!triedDefaultPort && portToTry !== defaultPort) {
+          console.warn(`Port ${portToTry} is not available. Trying port ${defaultPort}...`);
+          startServer(defaultPort, true);
+        } else {
+          console.error(`Port ${portToTry} is not available. Exiting.`);
+          process.exit(1);
+        }
+      } else {
+        console.error('Server error:', err);
+        process.exit(1);
+      }
+    });
+  }
+
+  if (userPort) {
+    startServer(userPort, false);
+  } else {
+    startServer(defaultPort, false);
+  }
 
   // Watch for changes in data.json and reload data
   fs.watchFile(`${__dirname}/dev-data/data.json`, async (curr, prev) => {

@@ -27,11 +27,6 @@
     transition: all 0.5s;
   }
 
-  .card__title-box {
-    background: linear-gradient(to bottom, #9be15d, #00e3ae);
-    padding: 1rem 2rem;
-  }
-
   .card__title {
     font-family: 'Megrim', sans-serif;
     font-size: 2.5rem;
@@ -42,12 +37,23 @@
     margin-top: 1.5rem;
   }
 
-  .card__detail-box {
-    padding: 1rem 0;
-    border-bottom: 1px solid #ddd;
+  .card__title-box {
+    width: 100%;
+    background: linear-gradient(45deg, rgba(9,9,121,1) 0%, rgba(2,69,36,1) 5%, rgba(127,127,0,1) 15%, pink 50%, rgba(0,212,255,1) 100%);
+    padding: 25px 0 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    animation: Gradient 50s ease-in-out infinite;
+    background-size: 100vw 200%;
+  }
+  
+  @keyframes Gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
   }
 
-  .card__detail {
+.card__detail {
     font-size: 1.6rem;
     color: #333;
   }
